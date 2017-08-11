@@ -19,6 +19,6 @@ namespace TODO.Factories
         ISubTask CreateSubTask(string title, string priority,
             string description, string end, string importancePercent = null);
 
-        IReminder CreateReminder(DateTime dt);
+        IReminder CreateReminder(DateTime dt,DateTime now);
     }
 }

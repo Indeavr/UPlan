@@ -8,17 +8,18 @@ namespace TODO.Models
         private DateTime dueDate;
         private double importancePercent;
 
-        public SubTask(string title, Priority priority, string description, DateTime dueDate, double importancePercent)
-            : base(title, priority, description)
+        public SubTask(string title, Priority priority, string description, DateTime dueDate, double importancePercent,DateTime dateOfCreation)
+            : base(title, priority, description, dateOfCreation)
         {
             this.DueDate = dueDate;
             this.ImportancePercent = importancePercent;
+            
         }
 
-        public SubTask(string title, Priority priority, string description, DateTime dueDate, double importancePercent, DateTime dateOfCreation = default(DateTime))
-            : this(title, priority, description, dueDate, importancePercent)
+        public SubTask(string title, Priority priority, string description, DateTime dueDate, double importancePercent, DateTime dateOfCreation,Reminder reminder)
+            :this(title,priority,description,dueDate,importancePercent,dateOfCreation)
         {
-            this.DateOfCreation = dateOfCreation;
+            this.Reminder = reminder;
         }
 
         public DateTime DueDate

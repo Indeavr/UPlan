@@ -37,7 +37,12 @@ namespace TODO.Models
         }
         public override string ToString()
         {
-            return $"{this.MomentToRemind}";
+            var dt = new DateTime(2000, 2,
+                2,
+                this.MomentToRemind.Hours,
+                this.MomentToRemind.Minutes,
+                this.MomentToRemind.Seconds).ToString("HH/mm/ss");
+            return $"{dt}";
         }
     }
 }

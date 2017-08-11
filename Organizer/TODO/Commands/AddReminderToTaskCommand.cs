@@ -34,7 +34,7 @@ namespace TODO.Commands
             string momentToRemind = base.Parameters[1];
 
             DateTime dt = DateTime.ParseExact(momentToRemind, Constants.Formats,CultureInfo.InvariantCulture, DateTimeStyles.None);
-            IReminder reminder = this.Factory.CreateReminder(dt);
+            IReminder reminder = this.Factory.CreateReminder(dt,DateTime.Now);
 
 
             if (!SearchForTask(taskName))

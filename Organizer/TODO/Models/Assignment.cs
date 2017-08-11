@@ -3,7 +3,7 @@ using TODO.Utils.Validator;
 
 namespace TODO.Models
 {
-    public abstract class Assignment 
+    public abstract class Assignment
     {
         private string title;
         private string content;
@@ -50,15 +50,10 @@ namespace TODO.Models
             }
             protected set
             {
-                if (value == default(DateTime))
-                {
-                    this.dateOfCreation = DateTime.Now;
-                }
-                else
-                {
-                    this.dateOfCreation = value;
-                }
+                Validator.CheckIfDateTimeIsNotNull(value);
+
+                this.dateOfCreation = value;
             }
-        }     
+        }
     }
 }

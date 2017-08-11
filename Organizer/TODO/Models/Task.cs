@@ -9,13 +9,13 @@ namespace TODO
         private Priority priority;
         private IReminder reminder;
      
-        public Task(string title, Priority priority, string content, DateTime dateOfCreation = default(DateTime))
+        public Task(string title, Priority priority, string content, DateTime dateOfCreation)
             :base(title,content,dateOfCreation)
-        {      
-            this.Priority = priority;          
-            this.Reminder = reminder;
+        {
+            this.DateOfCreation = dateOfCreation;
+            this.Priority = priority;           
         }
-        public Task(string title, Priority priority, string content,Reminder reminder, DateTime dateOfCreation = default(DateTime))
+        public Task(string title, Priority priority, string content,Reminder reminder, DateTime dateOfCreation)
             : this(title, priority, content, dateOfCreation)
         {
             this.Reminder = reminder;
@@ -67,7 +67,7 @@ namespace TODO
                 Environment.NewLine,
                 $"Created: {this.DateOfCreation.ToString("HH:mm/dd/MM/yyyy")}",
                 Environment.NewLine,
-                "You will be reminded at: ", $"{(this.Reminder == null ? "No reminder set" : $"{this.Reminder.MomentToRemind.ToString("HH:mm:ss")}")}",
+                "You will be reminded after: ", $"{(this.Reminder == null ? "No reminder set" : $"{this.Reminder.ToString()}")}",
                 Environment.NewLine,
                 AdditionalPrintingInformation(),
                 Environment.NewLine,

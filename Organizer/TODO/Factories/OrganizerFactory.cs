@@ -11,7 +11,7 @@ namespace TODO.Factories
     {
         public INote CreateNote(string title, string content)
         {
-            return new Note(title, content);
+            return new Note(title, content,false,DateTime.Now);
         }
 
         public INotebook CreateNotebook(string name)
@@ -27,7 +27,7 @@ namespace TODO.Factories
                 throw new ArgumentException("Wrong Priority");
             }
 
-            return new Task(title, resultPriority, description);
+            return new Task(title, resultPriority, description,DateTime.Now);
         }
 
         public IUser CreateUser(string username, string password)
@@ -43,7 +43,10 @@ namespace TODO.Factories
                 throw new ArgumentException(Messages.WrongPriority());
             }
 
-            return new LongTermTask(title, resultPriority, DateTime.ParseExact(end, Constants.Formats, CultureInfo.InvariantCulture, DateTimeStyles.None), description);
+            return new LongTermTask(title, resultPriority,
+                DateTime.Now,
+                description,
+                DateTime.ParseExact(end, Constants.Formats, CultureInfo.InvariantCulture, DateTimeStyles.None));
         }
 
         public ISubTask CreateSubTask(string title, string priority, string end, string description, string importancePercent)
@@ -61,12 +64,12 @@ namespace TODO.Factories
                 throw new ArgumentException(Messages.WrongEndDate());
             }
 
-            return new SubTask(title, finalPriority, description, dueDate, double.Parse(importancePercent));
+            return new SubTask(title, finalPriority, description, dueDate, double.Parse(importancePercent),DateTime.Now);
         }
 
-        public IReminder CreateReminder(DateTime dt)
+        public IReminder CreateReminder(DateTime dt,DateTime now)
         {
-            TimeSpan wantedDateToRemind=dt.Subtract(DateTime.Now);
+            TimeSpan wantedDateToRemind=dt.Subtract(now);
             return new Reminder(wantedDateToRemind);
         }
     }

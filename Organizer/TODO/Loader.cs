@@ -95,14 +95,14 @@ namespace TODO
 
             Priority priority = (Priority)Enum.Parse(typeof(Priority), subTaskParameters[1]);
 
-            //TODO implement when reminder is not null
+            Reminder reminder = new Reminder(DateTime.ParseExact(subTaskParameters[2], Constants.TimeSpanFormats, CultureInfo.InvariantCulture, DateTimeStyles.None).TimeOfDay);
             DateTime dtStart = DateTime.ParseExact(subTaskParameters[3], Constants.Formats, CultureInfo.InvariantCulture, DateTimeStyles.None);
             DateTime dtDueDate = DateTime.ParseExact(subTaskParameters[4], Constants.Formats, CultureInfo.InvariantCulture, DateTimeStyles.None);
 
             double importancePercent = double.Parse(subTaskParameters[5]);
             string description = subTaskParameters[6];
 
-            return new SubTask(title, priority, description, dtDueDate, importancePercent, dtStart);
+            return new SubTask(title, priority, description, dtDueDate, importancePercent, dtStart,reminder);
         }
 
         private static ITask LoadTask(string taskParameteresString)
@@ -110,10 +110,11 @@ namespace TODO
             string[] taskParameters = taskParameteresString.Split(new string[] { ":::" }, StringSplitOptions.RemoveEmptyEntries).ToArray();
             string title = taskParameters[0];
             Priority priority = (Priority)Enum.Parse(typeof(Priority), taskParameters[1]);
-            //TODO implement when reminder is not null
+            Reminder reminder = new Reminder(DateTime.ParseExact(taskParameters[2], Constants.TimeSpanFormats, CultureInfo.InvariantCulture,DateTimeStyles.None).TimeOfDay);
+
             DateTime dt = DateTime.ParseExact(taskParameters[3], Constants.Formats, CultureInfo.InvariantCulture, DateTimeStyles.None);
             string description = taskParameters[4];
-            return new Task(title, priority, description, dt);
+            return new Task(title, priority, description,reminder,dt);
         }
 
         private static ILongTermTask LoadLongTermTask(string longTermTaskParametersString)
@@ -135,12 +136,13 @@ namespace TODO
                     .Select(x => LoadSubTask(x)).ToList();
             }
             DateTime dtStart = DateTime.ParseExact(longTermTaskParameters[3], Constants.Formats, CultureInfo.InvariantCulture, DateTimeStyles.None);
-            //TODO implement when reminder is not null
+            Reminder reminder = new Reminder(DateTime.ParseExact(longTermTaskParameters[2], Constants.TimeSpanFormats, CultureInfo.InvariantCulture, DateTimeStyles.None).TimeOfDay);
+
 
             DateTime dtEnd = DateTime.ParseExact(longTermTaskParameters[5].Trim(), Constants.Formats, CultureInfo.InvariantCulture, DateTimeStyles.None);
             string description = longTermTaskParameters[6];
 
-            return new LongTermTask(title, priority, dtEnd, description, dtStart, currSubtasks);
+            return new LongTermTask(title, priority, dtEnd, description,dtStart,reminder,currSubtasks);
         }
     }
 }

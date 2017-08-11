@@ -11,11 +11,19 @@ namespace TODO.Models
         private ICollection<ISubTask> allTasks;
         private DateTime end;
 
-        public LongTermTask(string title, Priority priority, DateTime end, string description,
-            DateTime start = default(DateTime), ICollection<ISubTask> allTasks = null)
+        public LongTermTask(string title, Priority priority, DateTime start, string description,
+            DateTime end)
             : base(title, priority, description, start)
         {
+            this.DateOfCreation = start;
             this.End = end;
+            this.AllTasks = new List<ISubTask>();
+        }
+        public LongTermTask(string title, Priority priority, DateTime end, string description,
+           DateTime start,Reminder reminder,ICollection<ISubTask> allTasks)
+           : this(title, priority, start, description,end)
+        {
+            this.Reminder = reminder;
             this.AllTasks = allTasks;
         }
 

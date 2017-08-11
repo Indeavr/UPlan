@@ -7,11 +7,12 @@ namespace TODO.Models
     {      
         private bool isFavourite;
 
-        public Note(string title, string content, bool isFavourite = false, DateTime dateOfCreation = default(DateTime))
+        public Note(string title, string content, bool isFavourite, DateTime dateOfCreation)
             :base(title, content, dateOfCreation)
         {
            
             this.IsFavourite = isFavourite;
+            this.DateOfCreation = dateOfCreation;
         }
 
         
@@ -51,11 +52,6 @@ namespace TODO.Models
                 Environment.NewLine,
                 new string('-', 29),
                 Environment.NewLine);
-
-
-
-            //$"   ###{this.Title}### created: {this.DateOfCreation:dd/MM/yyyy}" + Environment.NewLine +
-            // $"      DESCRIPTION:{this.Content}.";
         }
     }
 }

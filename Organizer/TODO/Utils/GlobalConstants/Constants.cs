@@ -16,6 +16,11 @@
         "dd.MM.yyyy", "dd.MM.yyyy",
         "dd-MM-yyyy", "dd-MM-yyyy","dd/MM/yyyy", "dd/MM/yyyy",
         "dd MM yyyy", "dd MM yyyy","dd|MM|yyyy", "dd|MM|yyyy"};
+        public static readonly string[] TimeSpanFormats = new string[] { "HH.mm.ss", "HH.mm.ss",
+        "HH-mm-ss", "HH-mm-ss","HH/mm/ss", "HH/mm/ss",
+        "HH mm ss", "HH mm ss","HH|mm|ss", "HH|mm|ss",
+        "HH:mm:ss"
+        };
 
         public const string EmptyOrNullList = "List cannot be null or empty";
         public const string EmptyCollection = "This collection is currently empty or null";
