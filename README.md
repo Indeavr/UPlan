@@ -6,14 +6,14 @@
 *Then this Organizer is excatly what you've been looking for. A quick way to gather all of your important papers, take your kid from school, track long-term goals and a whole lot more.
 You'll love this Organizer. Why? Just open the Database folder and print out all of your TODOs. Cool huh?*
 
-**Goal**
+**GOAL**
 
 Our main concern is the productivity of out customers or as we call them partners. Having a well planned day will undoubtedly help you deal with all tasks.
 
-**Key Elements** 
+**KEY ELEMENTS** 
 
 1. Easy to deal with
-	*  Even your grandma will manage to use it properly. Thank us later ;)
+	*  Even your grandma will manage to use it properly. Thank us later :wink:
 2. Non-complex structure.
 
 3. Can be used from multiple users on one device.
@@ -43,4 +43,19 @@ Each *Sub-task* is a task which has a *importance percentage* - make it a piece 
 **REMINDER**
 
 A collection of moments used to remind for every created task and its due.
+
+### Command Cheat Sheet ###
+
+*Shhhhhht, dont't tell anyone.*
+
+To create a new user - `register`, respectivelly you are able to `login` and `logout`.
+
+To create notebooks, notes, tasks etc. use the word `add` and concatenate with the name of the product. For example `addlongtermtask`. It is case insensitive.
+
+To delete use the word `delete` instead of add.
+
+Respectivelly you can list everything use the previous commands but instead of `add` use `list`.
+
+To sort out use `sortallnotebooks`, `sortnotebook`, `sorttasks`.
+
 
