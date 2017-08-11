@@ -1,0 +1,47 @@
+TODO
+______NOTEBOOK______
+Notebook --> съдържа списък от Note и опции за модифициране;
+Note --> Класически note с опция за favourite(при печатане излизат първо favourite);
+
+______TASK________
+Task --> title, content, start(ползва се в наследниците), reminder, author(user), priority, type;
+LongTermTask --> има колекция от SubTask-ове. Разликата е че освен startDate(exactDate) има и endDate,
+				 демек има времеви диапозон в който има subTask-ове.
+SubTask --> обикновен таск, който има ImportancePercent
+			(отнешение за крайната цел, все пак е LongTermTask. Чрез него ще се следи прогреса като цяло, а не само на всеки един отделен task)
+			
+____REMINDER____
+Колекция от моменти в които да се напомни за всеки таск.
+
+____USER_______
+Има колекция от Notebook.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Work Task Type --> attach document function
+Learning System
+-For now just schedule
+
